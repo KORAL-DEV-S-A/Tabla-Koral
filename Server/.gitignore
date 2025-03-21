@@ -1,5 +1,5 @@
 .env
 node_modules
-packeg-lock.json
 
-
+Server/node_modules
+Server/.env
