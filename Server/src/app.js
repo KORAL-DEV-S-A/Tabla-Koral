@@ -44,5 +44,4 @@ app.use((err, req, res, next) => {
 // Server
 httpServer.listen(config.PORT, () => {
     console.log(`Server is running on port ${config.PORT}`);
-    console.log(`Socket is running on port  ${config.PORT}`);
 });
