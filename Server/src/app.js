@@ -17,6 +17,7 @@ export const io = new Server(httpServer, {
     }
 });
 
+
 io.on('connection', (socket) => {
     console.log('Socket connected', socket.id);
     
@@ -44,5 +45,4 @@ app.use((err, req, res, next) => {
 // Server
 httpServer.listen(config.PORT, () => {
     console.log(`Server is running on port ${config.PORT}`);
-    console.log(`Socket is running on port  ${config.PORT}`);
 });
