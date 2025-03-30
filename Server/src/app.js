@@ -5,7 +5,9 @@ import {Server} from 'socket.io';
 import config from './config.js';
 import {createServer} from 'http';
 import Router from './router/router.js';
+import coookieParser from 'cookie-parser';
 import { connectionDB } from './db/connectionDB.js';
+
 
 
 // Express
@@ -13,7 +15,8 @@ const app = express();
 const httpServer = createServer(app);
 export const io = new Server(httpServer, {
     cors: {
-        origin: '*',
+        origin: config.CORS_ORIGIN,
+        credentials: true
     }
 });
 
@@ -32,6 +35,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(coookieParser());
 connectionDB();
 
 // // Routes
